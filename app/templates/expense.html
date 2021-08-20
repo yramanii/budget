@@ -1,0 +1,57 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense</title>
+</head>
+<body>
+    <h1>This is Expense Page.</h1>
+
+    <div class="navbar" style="margin-left: 5%; border: 2px solid black; width: 8%; margin: 10px; padding: 10px;">
+        <a href="{% url 'home' %}">Home</a>&emsp;
+        <a href="{% url 'income' %}">Income</a>
+    </div>
+
+    <br><br>
+    
+    <fieldset>
+
+        <legend style="color: black;">Please fill out this form</legend><br>
+
+        <div class='form'>
+
+            <form method="POST" style="width: 15%;">
+                {% csrf_token %}
+
+
+                {{form2|crispy}}
+
+                <input id="date" name="date" hidden>
+                <script type="text/javascript">
+                    document.getElementById('date').value = Date();
+                </script>
+                <br>
+
+                <input type="submit" value="Submit" style="color: black;">
+            </form>
+
+        </div>
+    </fieldset>
+
+    <div class="expense">
+        {% for data in data2 %}
+            <ul>
+                <li>
+                    <p>{{data.personName}}:</p>
+                    <ul><p>{{data.category}}: {{data.expenseAmount}}</p></ul>
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

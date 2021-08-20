@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+
+    <h1>This is Budget App HomePage.</h1>
+
+    <div class="navbar" style="margin-left: 5%; border: 2px solid black; width: 8%; margin: 10px; padding: 10px;">
+        <a href="{% url 'income' %}">Income</a>&emsp;               
+        <a href="{% url 'expense' %}">Expense</a>
+    </div>
+    
+</body>
+</html>
